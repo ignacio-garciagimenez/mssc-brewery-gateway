@@ -22,6 +22,9 @@ public class LoadBalancedRoutes {
                 .route(r -> r.path("/api/v1/beer/**")
                         .uri("lb://beer-inventory-service")
                         .id("beer-inventory-service"))
+                .route(r -> r.path("/inventory-failover")
+                        .uri("lb://beer-inventory-failover-service")
+                        .id("beer-inventory-failover-service"))
                 .build();
     }
 }
